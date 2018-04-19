@@ -36,6 +36,21 @@ public class NumJewelsInStones {
         return res;
     }
 
+    //A-65, z-122
+    public int numJewelsInStones2(String J, String S) {
+        byte[] jChar = new byte[58];//58 = 'z' - 'A'
+        for(char c : J.toCharArray()) {
+            jChar[c-'A'] = 1;//初始化标识位
+        }
+        int result = 0;
+        for(char c : S.toCharArray()) {
+            if(jChar[c-'A']==1){
+                result++;
+            }
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
         NumJewelsInStones numJewelsInStones = new NumJewelsInStones();
         System.out.println(numJewelsInStones.numJewelsInStones("z", "ZZ"));
